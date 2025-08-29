@@ -9,7 +9,9 @@ services:
       MYSQL_DATABASE: u499940289_DeMoHiTpLDb
       MYSQL_USER: u499940289_DeMoHiTpLUsEr
       MYSQL_PASSWORD: DeMoHiTpl@2025
-
+    volumes:
+      - db_data:/var/lib/mysql
+      
   web:
     build: .
     container_name: mother_app
@@ -25,3 +27,6 @@ services:
       MYSQL_DB: u499940289_DeMoHiTpLDb
       MYSQL_USER: u499940289_DeMoHiTpLUsEr
       MYSQL_PASSWORD: DeMoHiTpl@2025
+
+volumes:
+  db_data:
