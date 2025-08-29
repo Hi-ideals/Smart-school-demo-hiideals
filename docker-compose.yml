@@ -6,28 +6,22 @@ services:
       - "3328:3306"
     environment:
       MYSQL_ROOT_PASSWORD: mysql123
-      MYSQL_DATABASE: u499940289_MoTHeRtErScnUr
-      MYSQL_USER: u499940289_MoThERTerSCnUR
-      MYSQL_PASSWORD: MOthErTerScnURSi@2025
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./u499940289_MoTHeRtErScnUr.sql:/docker-entrypoint-initdb.d/u499940289_MoTHeRtErScnUr.sql
+      MYSQL_DATABASE: u499940289_DeMoHiTpLDb
+      MYSQL_USER: u499940289_DeMoHiTpLUsEr
+      MYSQL_PASSWORD: DeMoHiTpl@2025
 
   web:
     build: .
     container_name: mother_app
     ports:
-      - "8031:80"
+      - "8041:80"
     volumes:
-      - ./mothertres:/var/www/html
+      - ./smart_school_src:/var/www/html
     depends_on:
       - db
     environment:
       MYSQL_HOST: db
       MYSQL_PORT: 3306
-      MYSQL_DB: u499940289_MoTHeRtErScnUr
-      MYSQL_USER: u499940289_MoThERTerSCnUR
-      MYSQL_PASSWORD: MOthErTerScnURSi@2025
-
-volumes:
-  db_data:
+      MYSQL_DB: u499940289_DeMoHiTpLDb
+      MYSQL_USER: u499940289_DeMoHiTpLUsEr
+      MYSQL_PASSWORD: DeMoHiTpl@2025
